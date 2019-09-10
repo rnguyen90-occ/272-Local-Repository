@@ -27,7 +27,11 @@ public class Sequence
     }
     
     // TODO: Write the three versions of slice() here
-    
+    Sequence slice(int start) {
+    	
+		return null;
+    	
+    }
     
     
     
@@ -52,7 +56,7 @@ public class Sequence
     {
         Sequence a = new Sequence(new int[]{1, 2, 3, 4, 5});
         // some informal testing
-//        System.out.println("a.slice(0)->" + a.slice(0));
+          System.out.println("a.slice(0)->" + a.slice(0));
 //        System.out.println("a.slice(1)->" + a.slice(1));
 //        System.out.println("a.slice(-1)->" + a.slice(-1));
 //        System.out.println("a.slice(-2)->" + a.slice(-2));

@@ -22,11 +22,11 @@ public class RoachPopulation
     }
     
     public void breed() {
-    	roaches = roaches *.2;
+    	roaches *=.2;
     }
     
     public void spray() {
-    	roaches = roaches * .9;
+    	roaches *= .9;
     	
     }
     
