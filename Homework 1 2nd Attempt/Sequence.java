@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class Sequence
 {
     // TODO: You must fill these in correctly to get credit
-    public static final String STUDENT = "Put your login ID here";
+    public static final String STUDENT = "rnguyen90";
     public static final String ASSIGNMENT = "H01-D";
     
     private int[] array;
