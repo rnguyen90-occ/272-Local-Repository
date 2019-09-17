@@ -1,12 +1,16 @@
 package IC03A.question1;
 
 public class DriverLicense extends Card {
-	private String expYear;
+	private int expYear;
 	
-	public DriverLicense(String n, String expYear) {
+	public DriverLicense(String n, int expYear) {
 		super(n);
 		this.expYear = expYear;
 		
+	}
+	
+	public String format() {
+		return super.format() + " " + "Expiration Year: " + expYear;
 	}
 
 }

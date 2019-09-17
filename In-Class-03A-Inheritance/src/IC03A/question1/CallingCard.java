@@ -13,7 +13,7 @@ public class CallingCard extends Card {
 	}
 	
 	public String format() {
-		return super.format() + ("Card number: " + cardNumber + "\nPin number: " + pin);
+		return super.format() + " " + ("Card number: " + cardNumber + "\nPin number: " + pin);
 	}
 
 	

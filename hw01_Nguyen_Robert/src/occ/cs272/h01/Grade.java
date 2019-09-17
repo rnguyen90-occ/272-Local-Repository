@@ -2,7 +2,7 @@
  * CS 272 - Fall 2019
  * H01-Grade.java
  */
-
+package occ.cs272.h01;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,38 +28,38 @@ public class Grade
      */
     public Grade(String input) 
     {
-        grade = input;
+        grade = input.toUpperCase();
     }
     
     /**
      * getNumericGrade
      * @return returns the numeric value of this grade.
      */
-    public double getNumericGrade(String grade) {
-    	Map<Character, Double> gradeMap = new HashMap<Character,Double>() {{
-    		put('A', 4.0);
-    		put('B', 3.0);
-    		put('C', 2.0);
-    		put('D', 1.0);
-    		put('F', 0.0);
+    public double getNumericGrade() {
+    	Map<String, Double> gradeMap = new HashMap<String,Double>() {{
+    		put("A+", 4.0);
+    		put("A", 4.0);
+    		put("A-", 3.7);
+    		put("B+", 3.3);
+    		put("B", 3.0);
+    		put("B-", 2.7);
+    		put("C+", 2.3);
+    		put("C", 2.0);
+    		put("C-", 1.7);
+    		put("D+", 1.3);
+    		put("D", 1.0);
+    		put("D-", 0.7);
+    		put("F", 0.0);
+    		
     	}};
     	
-    	char [] gradeParts = grade.toCharArray();
-    	double numericGrade = gradeMap.get(gradeParts[0]);
-    	if(gradeParts.length > 1) {
-    		
-    		switch(gradeParts[1]) {
-    		case '+':
-    			numericGrade += 0.3;
-    			break;
-    		case '-':
-    			numericGrade -= 0.3;
-    			break;
-    		}
+    	if (gradeMap.containsKey(grade)) {
+    		return gradeMap.get(grade);
     	}
-    	return numericGrade;
-    }
-    
+    		return -1.0;
+    		
+    	}
+
     /**
      * Use this main method to interactively
      * test the getNumericGrade method.
@@ -71,7 +71,7 @@ public class Grade
             System.out.print("Enter a letter grade: ");
             String input = in.nextLine();
             Grade g = new Grade(input);
-            double grade = g.getNumericGrade(input);
+            double grade = g.getNumericGrade();
             System.out.println("Numeric value: " + grade);
         }
     }

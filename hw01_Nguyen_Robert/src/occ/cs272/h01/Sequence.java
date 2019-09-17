@@ -2,7 +2,7 @@
  * CS 272 - Fall 2019
  * H01-Sequence.java
  */
-
+package occ.cs272.h01;
 
 import java.util.Arrays;
 
@@ -29,33 +29,61 @@ public class Sequence
     }
     
     // TODO: Write the three versions of slice() here
-    Sequence slice(int start) {
-    	if (start < 0) {
-    		start += this.array.length;
+
+    public Sequence slice(int start) {
+    	int [] arr;
+    	if(start < 0 && start >= -(array.length)) {
+    		arr = new int [-(start)];
+    	}else {
+    		arr = new int[array.length - start];
     	}
     	
-		int [] b = Arrays.copyOfRange(this.array, start, this.array.length);
-		Sequence test = new Sequence(b);
-		return test;
+    	if(start < 0) {
+    		for (int i = 0; i < arr.length; i++) {
+    		arr[i] = array[(array.length - arr.length) + i];
+    	}
+    	}else {
+    		for(int i = 0; i < arr.length; i++) {
+    			arr[i] = array[start + i];
+    		}
+    	}
     	
+    	return new Sequence(arr);
+    }
+    	
+    
+    public Sequence slice(int start, int end) {
+    	int [] arr = new int[end - start];
+    	
+    	if (start < 0) { 
+    		for (int i = end; i >=start; i--) {
+    			arr[i] = array[end - i];
+    		}
+    		
+    	} else {
+    		for (int i = 0; i < arr.length; i++) {
+    				arr[i] = array[start + i];
+    		}
+    	}
+    	return new Sequence(arr);
     }
     
-    Sequence slice(int start, int end) {
-    	if (end < 0) {
-    		end += this.array.length;
-    	}
-    	if (start < 0) {
-    		start += this.array.length;
-    	}
+    
+    public Sequence slice(int start, int end, int step) {
+    	int[] arr = new int[end - step];
     	
-		int [] b = Arrays.copyOfRange(this.array, start, end);
-		Sequence test = new Sequence(b);
-		return test;
+    	if(start < 0) {
+    		for(int i = end; i >= start; i--) {
+    			arr[i] = array[end + (end - i)];
+    			
+    		}
+    	} else {
+    			for (int i = 0; i < arr.length; i++) {
+    				arr[i] = array[start + (i*step)];
+    			}
+    		}
+    		return new Sequence(arr);
     }
-    
-    
-    
-    
     
     @Override
     public String toString()
