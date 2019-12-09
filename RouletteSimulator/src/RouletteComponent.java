@@ -29,7 +29,7 @@ public class RouletteComponent extends JComponent
     // Overload the constructor to pass reference(s) to 
     // any objects that you need to refer to.
     public RouletteComponent(Rectangle newRect)
-    {
+    { 
         r = newRect;
     }
     public void paintComponent(Graphics g)

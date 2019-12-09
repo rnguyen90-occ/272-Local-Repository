@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class RouletteFrameViewer
 {
    public static void main(String[] args)
-   {
+   { 
       RouletteFrame frame = new RouletteFrame();
       frame.setTitle("Robert's Roulette Sim");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

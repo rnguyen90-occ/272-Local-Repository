@@ -26,7 +26,7 @@ import java.awt.Dimension;
 
 
 public class RouletteFrame extends JFrame implements ActionListener
-{
+{ 
 
     private static final Set<Integer> blackvalues = new HashSet<Integer> (Arrays.asList(2,4,6,8,11,12,13,15,17,20,22,24,26,29,30,31,33,35));
     private static final Set<Integer> redvalues = new HashSet<Integer> (Arrays.asList(1,3,5,7,9,10,14,16,18,19,21,23,25,27,28,32,34,36));
