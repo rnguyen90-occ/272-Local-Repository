@@ -1,0 +1,41 @@
+/**
+ * CS 272 - Fall 2019
+ * H01-RoachPopulation.java
+ */
+
+package occ.cs272.h01;
+/**
+ * rnguyen90 <your OCC login name such as sgilbert>
+ * 9/9/19 <the date>
+ *
+ */
+public class RoachPopulation
+{
+    // TODO: You must fill these in correctly to get credit
+    public static final String STUDENT = "rnguyen90";
+    public static final String ASSIGNMENT = "H01-A";
+    
+    private int population;
+    private int roaches;
+
+    public RoachPopulation(int roaches) {
+    	this.roaches = roaches;
+    }
+    
+    public void breed() {
+    	roaches *= 2;
+    }
+    
+    public void spray() {
+    	roaches = (int) Math.ceil(roaches * 0.9);
+    	
+    }
+    
+    public int getRoaches() {
+    	return roaches;
+    }
+    // TODO: Complete the RoachPopulation class
+    
+    
+    
+}
