@@ -1,3 +1,4 @@
+package RouletteSimulator;
 /**
  * A code stub/template for a simple GUI
  * - This file describes the main window
@@ -30,18 +31,21 @@ public class RouletteFrame extends JFrame implements ActionListener
 
     private static final Set<Integer> blackvalues = new HashSet<Integer> (Arrays.asList(2,4,6,8,11,12,13,15,17,20,22,24,26,29,30,31,33,35));
     private static final Set<Integer> redvalues = new HashSet<Integer> (Arrays.asList(1,3,5,7,9,10,14,16,18,19,21,23,25,27,28,32,34,36));
-	private Rectangle rect;
+    
+    private static final Set<Integer> redvaluesposition = new HashSet<Integer> (Arrays.asList(1,3,4,6,7,9,10,12,14,17,20,23,25,27,30,31,33,36));
+    private static final Set<Integer> blackvaluesposition = new HashSet<Integer> (Arrays.asList(2,5,8,11,13,15,16,18,19,21,22,24,26,28,29,32,34,35)); 
+    private Rectangle rect;
 	private int trialCount, blackCount, redCount;
     private JButton startButton, resetButton, bet10, bet25, bet50, bet100, bet500, betRed, betBlack, betGreen0, betGreen00;
     private JButton [] numbers;
-    private JLabel totalWinningLabel, trialLabel, outcomeLabel, blackPercentageLabel, redPercentageLabel, gameLabel, betLabel;
+    private JLabel totalWinningLabel, trialLabel, outcomeLabel, blackPercentageLabel, redPercentageLabel, betLabel;
     private JPanel panel;
     private JTextField totalTextField, trialTextField, outcomeTextField, blackPercentageTextField, redPercentageTextField, betTextField;
     private JComponent component;
     
 	private int numberarray [] = {3,6,9,12,15,18,21,24,27,30,33,36,
-			  2,5,8,11,14,17,20,23,26,29,32,35,
-			  1,4,7,10,13,16,19,22,25,28,31,34};
+			  					  2,5,8,11,14,17,20,23,26,29,32,35,
+			  					  1,4,7,10,13,16,19,22,25,28,31,34};
 	private int masterOutcome = 999;
 	private boolean blackFlag = false;
 	private boolean redFlag = false;
@@ -58,7 +62,6 @@ public class RouletteFrame extends JFrame implements ActionListener
     private static final int COMPONENT_WIDTH = 1200;
     private static final int COMPONENT_HEIGHT = 400;
     
-    // Constructor
     public RouletteFrame()
     {
     	setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -67,8 +70,6 @@ public class RouletteFrame extends JFrame implements ActionListener
     
     private void createComponents()
     {
-        // Create the GUI components
-
         // Create the buttons
 		numbers = new JButton[36];
 		
@@ -99,7 +100,6 @@ public class RouletteFrame extends JFrame implements ActionListener
         
         // Create the label
         betLabel = new JLabel("Your current bet is: ");
-        gameLabel = new JLabel("Welcome to Gambling Addiction");
         totalWinningLabel = new JLabel("Total: ");
         trialLabel = new JLabel("Round: ");
         outcomeLabel = new JLabel("The Winning Number is: ");
@@ -113,7 +113,6 @@ public class RouletteFrame extends JFrame implements ActionListener
         outcomeTextField = new JTextField();
         blackPercentageTextField = new JTextField();
         redPercentageTextField = new JTextField();
-        
         
         // Create the component (which we will use draw things)
         component = new RouletteComponent(rect);
@@ -185,8 +184,10 @@ public class RouletteFrame extends JFrame implements ActionListener
         betGreen00.setBorder(null);
         
         betRed.setBackground(Color.RED);
+        betRed.setForeground(Color.WHITE);
         betRed.setBounds(450, 400, 200, 100);
         panel.add(betRed);
+        betBlack.setForeground(Color.WHITE);
         betBlack.setBackground(Color.BLACK);
         betBlack.setBounds(650, 400, 200, 100);
         panel.add(betBlack);
@@ -207,12 +208,12 @@ public class RouletteFrame extends JFrame implements ActionListener
         	numbers[i] = new JButton(Integer.toString(numberarray[i]));
         	//numbers[i].addActionListener(actionPerformed(numbersArrayActionListener());
         	numbers[i].setForeground(Color.WHITE);
-
-        		if (blackvalues.contains(i+1))
+        	System.out.println(i);
+        		if (blackvaluesposition.contains(i+1))
         		{
         			numbers[i].setBackground(Color.BLACK);
         		}
-        		else if (redvalues.contains(i+1))
+        		else if (redvaluesposition.contains(i+1))
         		{
         			numbers[i].setBackground(Color.RED);
         		}
@@ -225,6 +226,8 @@ public class RouletteFrame extends JFrame implements ActionListener
         }
     }
 
+    
+    
     // Event handlers
     
     class startButtonListener implements ActionListener
@@ -314,7 +317,7 @@ public class RouletteFrame extends JFrame implements ActionListener
             }
             if (redvalues.contains(masterOutcome))
             {
-            	numColor = "Red";
+            	numColor = "RED";
             }
         	if (outcome < 37) 
         	{
@@ -370,6 +373,7 @@ public class RouletteFrame extends JFrame implements ActionListener
         	blackCount = 0;
         	redCount = 0;
         	trialCount = 0;
+        	betTextField.setText(null);
         	trialTextField.setText(null);
         	outcomeTextField.setText(null);
         	totalTextField.setText(null);
@@ -458,8 +462,8 @@ public class RouletteFrame extends JFrame implements ActionListener
     class numbersArrayActionListener implements ActionListener
     {
 	@Override
-	public void actionPerformed(ActionEvent e) 
-		{
+	public void actionPerformed(ActionEvent e) // This overrided method is supposed to be used for the JButton array of 36 numbers
+		{									   // but it doesn't work right now because I couldn't figure out the implementation.
 			if(e.getSource() == numbers)
 			{
 				System.out.println("lol");

@@ -1,3 +1,4 @@
+package RouletteSimulator;
 /**
  * A code stub/template for a simple GUI
  * - This file has the main method, which
