@@ -3,7 +3,7 @@ package RouletteSimulator;
  * A code stub/template for a simple GUI
  * - This file describes the main window
  * 
- * @author Justin Jang
+ * @author Robert Nguyen
  * @version 11/25/2019
  */
 
