@@ -4,7 +4,7 @@ package RouletteSimulator;
  * - This file has the main method, which
  *   simply creates the main window.
  * 
- * @author Justin Jang
+ * @author Robert Nguyen
  * @version 11/25/2019
  */
 
