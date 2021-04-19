@@ -4,7 +4,7 @@ package RouletteSimulator;
  * - This file has the component which will
  *   contain the graphics.
  * 
- * @author Justin Jang
+ * @author Robert Nguyen
  * @version 11/25/2019
  */
 import javax.swing.JButton;
